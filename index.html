@@ -1,0 +1,860 @@
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumify - Saude Integrativa</title>
+<script src="assets/resource_3fa48481346f"></script>
+<script src="assets/lucide_latest_2eebd0ebe8c2"></script>
+<script src="assets/iconify-icon_e19829e7f0e8.js"></script>
+<!-- GSAP & ScrollTrigger -->
+<script src="assets/gsap_4a57399e4113.js"></script>
+<script src="assets/ScrollTrigger_8669edfeb171.js"></script>
+<link href="assets/css2_19fd9cc6b396.css" rel="stylesheet"/>
+<style>
+body { font-family: 'Inter', sans-serif; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.snap-x { scroll-snap-type: x mandatory; }
+.snap-center { scroll-snap-align: center; }
+/* Custom styles for the mask reveal to ensure no layout shift */
+.word-wrapper {
+display: inline-block;
+overflow: hidden;
+vertical-align: bottom;
+padding-bottom: 2px; /* Prevent descender clipping */
+margin-right: 0.25em; /* Space between words */
+}
+.word-inner {
+display: inline-block;
+transform: translateY(110%);
+}
+</style>
+<style id="aura-editor-visibility-style">
+.invisible { visibility: hidden !important; }
+</style><style id="cms-loading-styles">
+@keyframes cms-shimmer {
+0% { background-position: -200% 0; }
+100% { background-position: 200% 0; }
+}
+.cms-loading {
+position: relative;
+color: transparent !important;
+background-image: none !important;
+background-color: transparent !important;
+background: linear-gradient(90deg,
+rgba(128, 128, 128, 0.1) 25%,
+rgba(128, 128, 128, 0.2) 50%,
+rgba(128, 128, 128, 0.1) 75%
+) !important;
+background-size: 200% 100% !important;
+animation: cms-shimmer 1.5s infinite !important;
+border-radius: 12px;
+min-height: 1em;
+min-width: 3em;
+overflow: hidden;
+}
+.cms-loading * {
+visibility: hidden !important;
+}
+.cms-loading img {
+opacity: 0 !important;
+}
+</style>
+<link href="assets/css2_86e10c4bcbd4.css" id="all-fonts-link-font-geist" rel="stylesheet"/><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link href="assets/css2_0fc20595ebff.css" id="all-fonts-link-font-roboto" rel="stylesheet"/><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link href="assets/css2_23afcbef9bdd.css" id="all-fonts-link-font-montserrat" rel="stylesheet"/><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link href="assets/css2_82ced711bf49.css" id="all-fonts-link-font-poppins" rel="stylesheet"/><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link href="assets/css2_fa22aa91016e.css" id="all-fonts-link-font-playfair" rel="stylesheet"/><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link href="assets/css2_2b2d87bc82d8.css" id="all-fonts-link-font-instrument-serif" rel="stylesheet"/><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link href="assets/css2_4fef849c83da.css" id="all-fonts-link-font-merriweather" rel="stylesheet"/><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link href="assets/css2_a7b22b336fe1.css" id="all-fonts-link-font-bricolage" rel="stylesheet"/><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link href="assets/css2_0b2072b66163.css" id="all-fonts-link-font-jakarta" rel="stylesheet"/><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link href="assets/css2_9b8bf743d4a8.css" id="all-fonts-link-font-manrope" rel="stylesheet"/><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link href="assets/css2_8e191ef32247.css" id="all-fonts-link-font-space-grotesk" rel="stylesheet"/><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link href="assets/css2_70fd47a02eed.css" id="all-fonts-link-font-work-sans" rel="stylesheet"/><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link href="assets/css2_b52fc18295f8.css" id="all-fonts-link-font-pt-serif" rel="stylesheet"/><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link href="assets/css2_62759cd015bd.css" id="all-fonts-link-font-geist-mono" rel="stylesheet"/><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link href="assets/css2_f495c2faa2a6.css" id="all-fonts-link-font-space-mono" rel="stylesheet"/><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link href="assets/css2_6f16cdd6fd9f.css" id="all-fonts-link-font-quicksand" rel="stylesheet"/><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link href="assets/css2_94cb6f0c406a.css" id="all-fonts-link-font-nunito" rel="stylesheet"/><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style><link href="assets/css2_6c160a0c4e6f.css" id="all-fonts-link-font-newsreader" rel="stylesheet"/><style id="all-fonts-style-font-newsreader">.font-newsreader { font-family: 'Newsreader', serif !important; }</style><link href="assets/css2_bd407d5ceb4b.css" id="all-fonts-link-font-google-sans-flex" rel="stylesheet"/><style id="all-fonts-style-font-google-sans-flex">.font-google-sans-flex { font-family: 'Google Sans Flex', sans-serif !important; }</style><link href="assets/css2_176e25227b5e.css" id="all-fonts-link-font-oswald" rel="stylesheet"/><style id="all-fonts-style-font-oswald">.font-oswald { font-family: 'Oswald', sans-serif !important; }</style><link href="assets/css2_e5ca562f8909.css" id="all-fonts-link-font-dm-sans" rel="stylesheet"/><style id="all-fonts-style-font-dm-sans">.font-dm-sans { font-family: 'DM Sans', sans-serif !important; }</style><link href="assets/css2_bd311904ea29.css" id="all-fonts-link-font-cormorant" rel="stylesheet"/><style id="all-fonts-style-font-cormorant">.font-cormorant { font-family: 'Cormorant Garamond', serif !important; }</style><style data-scroll-fix="true">
+        /* Scroll fixes for offline viewing */
+        html, body {
+            overflow: auto !important;
+            overflow-x: hidden !important;
+            height: auto !important;
+            min-height: 100% !important;
+            scroll-behavior: auto !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Force visibility - many sites use JS animations for initial display */
+        body, .wrapper, main, #__next, #app, .page, .content {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+        }
+
+        /* Disable loader/preloader overlays */
+        .loader, .preloader, .loading, [class*="loader"], [class*="preloader"] {
+            display: none !important;
+            opacity: 0 !important;
+        }
+
+        /* Show elements that might be hidden for animation */
+        .word-inner, .char, .line, [data-aos], [data-scroll],
+        .hero-text span, .hero-fade, [class*="hero"] span {
+            opacity: 1 !important;
+            transform: none !important;
+            visibility: visible !important;
+        }
+
+        /* Reset Tailwind animation utility classes */
+        .translate-y-full, .translate-x-full, .-translate-y-full, .-translate-x-full,
+        .translate-y-1\/2, .-translate-y-1\/2, .translate-y-\[100\%\], .translate-y-\[110\%\] {
+            transform: none !important;
+        }
+
+        /* Force visibility on common hidden-for-animation patterns */
+        .opacity-0, [class*="opacity-0"] {
+            opacity: 1 !important;
+        }
+
+        /* Reset scale transforms used for animations */
+        .scale-0, .scale-50, .scale-75 {
+            transform: none !important;
+        }
+
+        html.lenis, html.lenis-smooth,
+        body.lenis, body.lenis-smooth,
+        .lenis-wrapper, .lenis-content,
+        [data-lenis-prevent], [data-scroll-container] {
+            overflow: visible !important;
+            height: auto !important;
+        }
+
+        /* Fix flex containers that might cut off content */
+        body.flex.items-center,
+        body.flex.justify-center {
+            align-items: flex-start !important;
+            min-height: 100vh;
+            height: auto !important;
+        }
+
+        /* Ensure main content scrolls */
+        main, #__next, #__nuxt, #app, .main-content {
+            overflow: visible !important;
+            height: auto !important;
+        }
+        </style></head>
+<body class="antialiased selection:bg-green-900 selection:text-white text-stone-800 bg-stone-50">
+<!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 px-6 py-6 flex justify-between items-center text-white mix-blend-difference">
+<div class="flex items-center gap-2">
+<iconify-icon height="28" icon="solar:leaf-linear" width="28"></iconify-icon>
+<span class="text-xl font-medium tracking-tighter uppercase" style="">Lumify</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-tight bg-stone-900/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/10">
+<a class="hover:opacity-70 transition" href="#" style="">Filosofia</a>
+<a class="hover:opacity-70 transition" href="#" style="">Clinica</a>
+<a class="hover:opacity-70 transition" href="#" style="">Apothecaria</a>
+<a class="hover:opacity-70 transition" href="#" style="">Diario</a>
+</div>
+<button class="bg-white text-stone-950 px-5 py-2.5 rounded-full text-xs font-medium hover:bg-stone-200 transition" style="">
+            Area do Membro
+        </button>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-screen min-h-[800px] overflow-hidden" id="hero-section">
+<!-- Parallax Background Image -->
+<div class="absolute inset-0 w-full h-full overflow-hidden">
+<img alt="Mulher relaxando" class="absolute inset-0 w-full h-[120%] -top-[10%] object-cover filter brightness-[0.75] will-change-transform" id="hero-bg" src="assets/a6489cc1-a452-4e39-acc1-4f45e9_fff57d7de870.webp"/>
+</div>
+<div class="flex flex-col md:px-12 md:pb-24 text-white pr-6 pb-12 pl-6 absolute top-0 right-0 bottom-0 left-0 justify-end z-10">
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
+<div class="">
+<div class="flex items-center gap-2 mb-6 opacity-80">
+<div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+<span class="text-xs font-medium tracking-wide uppercase" style="">Sao Paulo • Londres • Toquio</span>
+</div>
+<!-- Animated Reveal Text -->
+<h1 class="reveal-text leading-[1.05] md:text-7xl text-5xl tracking-tighter mb-6 font-light" style="">Recuperando o silencio em um mundo barulhento.</h1>
+</div>
+<div class="flex flex-col items-start lg:items-end justify-end gap-8">
+<p class="text-lg md:text-xl font-light leading-relaxed max-w-md text-left lg:text-right opacity-90" style="">
+                        Unimos a sabedoria botanica antiga com a ciencia metabolica moderna para restaurar o ritmo natural do seu corpo.
+                    </p>
+<button class="group flex items-center gap-3 bg-white text-stone-950 pl-6 pr-2 py-2 rounded-full transition hover:bg-stone-200">
+<span class="text-sm font-medium" style="">Iniciar avaliacao</span>
+<div class="w-8 h-8 bg-stone-950 rounded-full flex items-center justify-center text-white group-hover:rotate-45 transition duration-300">
+<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
+</div>
+</button>
+</div>
+</div>
+<div class="max-w-7xl mx-auto w-full flex justify-between text-xs font-medium uppercase tracking-widest opacity-50 mt-12 border-t border-white/20 pt-6">
+<span class="" style="">Sistemas de Saude Integrados</span>
+<span class="">2026 Lumify Wellness</span>
+</div>
+</div>
+</header>
+<!-- Section 01: Nossa Filosofia -->
+<section class="px-6 py-24 md:px-12 max-w-[1600px] mx-auto">
+<div class="flex justify-between items-baseline mb-12 border-b border-stone-200 pb-4">
+<span class="text-xs text-stone-400 uppercase tracking-widest" style="">/ 01 Nossa Filosofia</span>
+<span class="text-xs text-stone-400 font-mono" style="">[ 01 ]</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Image Card -->
+<div class="lg:col-span-4 relative group overflow-hidden rounded-2xl h-[500px]">
+<img alt="Retrato" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="assets/d52fd1be-07f8-4dcd-ade8-996c23_aa799e57b27a.webp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent flex flex-col justify-end p-8">
+<p class="text-white text-lg font-light leading-snug" style="">"A abordagem mais completa sobre longevidade que ja experimentei."</p>
+<div class="flex items-center gap-1 text-[#D4E8B0] mt-4">
+<iconify-icon icon="solar:star-bold" width="14"></iconify-icon>
+<span class="text-white text-sm font-medium ml-1" style="">Membro Verificado</span>
+</div>
+</div>
+</div>
+<!-- Middle Content -->
+<div class="lg:col-span-4 flex flex-col justify-between h-full gap-8">
+<div class="">
+<!-- Animated Reveal Text -->
+<h2 class="reveal-text text-3xl tracking-tight text-stone-900 leading-tight mb-8 font-light" style="">" Bem-estar nao e um destino, mas uma pratica diaria de equilibrio, clareza e vida intencional. "</h2>
+<p class="text-stone-500 text-base leading-relaxed" style="">Nossa abordagem clinica vai alem do gerenciamento de sintomas para tratar a vitalidade da causa raiz.</p>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-stone-100 shadow-sm flex-1 flex flex-col justify-end relative overflow-hidden group">
+<img alt="Interior" class="absolute inset-0 w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105" src="assets/6cf3e4f7-c5af-4cfc-b1aa-e6f42a_9c1636544aba.webp"/>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-stone-500 text-sm max-w-[200px]" style="">12k+ Membros Globais</p>
+<button class="bg-stone-900 text-white pl-5 pr-2 py-2 rounded-full flex items-center gap-2 hover:bg-stone-800 transition">
+<span class="text-xs font-medium" style="">Explorar Metodologia</span>
+<div class="bg-white text-black rounded-full p-1">
+<iconify-icon icon="solar:arrow-right-linear" width="12"></iconify-icon>
+</div>
+</button>
+</div>
+</div>
+<!-- Right Stats Card -->
+<div class="lg:col-span-4 bg-[#2C3E35] rounded-2xl p-8 flex flex-col justify-between min-h-[500px] relative overflow-hidden text-[#D4E8B0]">
+<!-- Decorative pattern -->
+<div class="absolute top-0 right-0 p-8 opacity-10 text-white">
+<iconify-icon height="120" icon="solar:graph-new-linear" width="120"></iconify-icon>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 bg-[#D4E8B0] rounded-full animate-pulse"></div>
+<span class="text-xs font-medium uppercase tracking-wide" style="">Impacto na Comunidade</span>
+</div>
+<div>
+<h3 class="text-6xl tracking-tighter text-white mb-2 font-light" style="">94%</h3>
+<p class="text-[#D4E8B0] text-sm opacity-80 mb-8" style="">Dos membros relatam melhora na qualidade do sono em 14 dias.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-full bg-white/10 h-10 rounded-full overflow-hidden flex items-center px-4 relative">
+<span class="relative z-10 text-xs font-medium text-white" style="">Reducao de Cortisol</span>
+<div class="absolute left-0 top-0 h-full bg-[#D4E8B0]/20 w-[82%]"></div>
+</div>
+<span class="text-sm font-medium text-white" style="">82%</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-full bg-white/10 h-10 rounded-full overflow-hidden flex items-center px-4 relative">
+<span class="relative z-10 text-xs font-medium text-white" style="">Flexibilidade Metabolica</span>
+<div class="absolute left-0 top-0 h-full bg-[#D4E8B0]/20 w-[65%]"></div>
+</div>
+<span class="text-sm font-medium text-white" style="">65%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partner Logos -->
+<div class="w-full overflow-hidden border-y border-stone-200 bg-white py-12 relative flex items-center justify-center" style="-webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);">
+<style>
+        @keyframes scroll-loop {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-infinite {
+            animation: scroll-loop 40s linear infinite;
+        }
+        .animate-scroll-infinite:hover {
+            animation-play-state: paused;
+        }
+    </style>
+<div class="flex w-max animate-scroll-infinite items-center">
+<!-- Logo Set 1 -->
+<div class="flex items-center gap-20 px-10 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500 ease-out">
+<iconify-icon height="64" icon="simple-icons:nasa" width="64"></iconify-icon>
+<iconify-icon height="56" icon="simple-icons:spacex" width="56"></iconify-icon>
+<iconify-icon height="56" icon="simple-icons:uber" width="56"></iconify-icon>
+<iconify-icon height="64" icon="simple-icons:visa" width="64"></iconify-icon>
+<iconify-icon class="" height="64" icon="simple-icons:bitwig" style="color: rgb(41, 37, 36);" width="64"></iconify-icon>
+<iconify-icon class="" height="56" icon="simple-icons:agora" style="color: rgb(41, 37, 36)" width="56"></iconify-icon>
+<iconify-icon class="" height="56" icon="simple-icons:aboutdotme" style="color: rgb(41, 37, 36);" width="56"></iconify-icon>
+<iconify-icon class="" height="56" icon="simple-icons:99designs" style="color: rgb(41, 37, 36);" width="56"></iconify-icon>
+</div>
+<!-- Logo Set 2 (Duplicate for seamless loop) -->
+<div class="flex gap-20 hover:opacity-100 hover:grayscale-0 transition-all duration-500 ease-out opacity-30 pr-10 pl-10 grayscale gap-x-20 gap-y-20 items-center">
+<iconify-icon class="" height="64" icon="simple-icons:nasa" width="64"></iconify-icon>
+<iconify-icon class="" height="56" icon="simple-icons:spacex" width="56"></iconify-icon>
+<iconify-icon class="" height="56" icon="simple-icons:uber" width="56"></iconify-icon>
+<iconify-icon class="" height="64" icon="simple-icons:visa" width="64"></iconify-icon>
+<iconify-icon class="" height="64" icon="simple-icons:allegro" style="color: rgb(41, 37, 36);" width="64"></iconify-icon>
+<iconify-icon height="56" icon="simple-icons:stripe" width="56"></iconify-icon>
+<iconify-icon height="56" icon="simple-icons:linear" width="56"></iconify-icon>
+<iconify-icon height="56" icon="simple-icons:vercel" width="56"></iconify-icon>
+</div>
+</div>
+</div>
+<!-- Section 03: Cuidado Clinico -->
+<section class="px-6 py-24 md:px-12 max-w-[1600px] mx-auto">
+<div class="bg-[#2C3E35] rounded-[40px] p-8 md:p-16 text-white relative overflow-hidden">
+<!-- Decorative bg noise/gradient optional -->
+<div class="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+<iconify-icon height="400" icon="solar:dna-linear" width="400"></iconify-icon>
+</div>
+<div class="flex justify-between items-baseline mb-12 border-b border-white/10 pb-4 relative z-10">
+<span class="text-xs text-[#D4E8B0]/60 uppercase tracking-widest">/ 02 Cuidado Clinico</span>
+<span class="text-xs text-[#D4E8B0]/60 font-mono">[ 02 ]</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 relative z-10">
+<!-- Left Side -->
+<div class="flex flex-col justify-between order-2 lg:order-1 gap-12">
+<div class="">
+<div class="flex items-start justify-between gap-6">
+<h2 class="text-4xl lg:text-5xl tracking-tight text-white mb-8 max-w-md font-light">
+                            Medicina de precisao para o ser humano moderno.
+                        </h2>
+<div class="border border-[#D4E8B0]/20 rounded-full p-2 hidden lg:block shrink-0">
+<iconify-icon class="text-[#D4E8B0]" height="24" icon="solar:dna-linear" width="24"></iconify-icon>
+</div>
+</div>
+<div class="flex flex-wrap gap-3 mb-8">
+<span class="px-4 py-2 rounded-full border border-[#D4E8B0]/20 text-xs font-medium text-[#D4E8B0] hover:bg-[#D4E8B0] hover:text-[#2C3E35] transition cursor-pointer">Analise de Biomarcadores</span>
+<span class="px-4 py-2 rounded-full border border-[#D4E8B0]/20 text-xs font-medium text-[#D4E8B0] hover:bg-[#D4E8B0] hover:text-[#2C3E35] transition cursor-pointer">Otimizacao Hormonal</span>
+<span class="px-4 py-2 rounded-full border border-[#D4E8B0]/20 text-xs font-medium text-[#D4E8B0] hover:bg-[#D4E8B0] hover:text-[#2C3E35] transition cursor-pointer">Microbioma Intestinal</span>
+<span class="px-4 py-2 rounded-full border border-[#D4E8B0]/20 text-xs font-medium text-[#D4E8B0] hover:bg-[#D4E8B0] hover:text-[#2C3E35] transition cursor-pointer">Terapia com Peptideos</span>
+<span class="px-4 py-2 rounded-full border border-[#D4E8B0]/20 text-xs font-medium text-[#D4E8B0] hover:bg-[#D4E8B0] hover:text-[#2C3E35] transition cursor-pointer">Telemedicina</span>
+</div>
+</div>
+<div class="bg-[#23322b] border border-white/5 rounded-2xl p-6 flex gap-6 items-center">
+<img alt="Doutor" class="w-20 h-20 rounded-xl object-cover grayscale opacity-80" src="assets/801bd63e-8f7f-44cc-af22-fe89e7_4058025f1ac5.webp"/>
+<div class="">
+<h4 class="text-lg font-medium text-white">Dr. Ricardo Mendes, MD</h4>
+<div class="flex items-center gap-2 mb-2">
+<span class="text-xs text-white/50">Diretor Medico</span>
+</div>
+<p class="text-sm text-white/70 max-w-xs mb-4">"Nos nao apenas tratamos sintomas; nos projetamos sua biologia para resiliencia."</p>
+<button class="bg-[#D4E8B0] text-[#2C3E35] pl-4 pr-1 py-1.5 rounded-full flex items-center gap-2 text-xs font-medium w-max hover:bg-white transition">
+                            Consulta
+                            <div class="bg-[#2C3E35] text-[#D4E8B0] rounded-full p-1">
+<iconify-icon icon="solar:arrow-right-linear" width="12"></iconify-icon>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Side (Image + Card) -->
+<div class="relative rounded-3xl overflow-hidden h-[500px] lg:h-[600px] group order-1 lg:order-2">
+<img alt="Comida Saudavel" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-90" src="assets/98495472-aacd-4d19-bf19-cd2454_bd400b55fae9.webp"/>
+<!-- Floating Card -->
+<div class="absolute top-6 right-6 bg-[#1A2621]/90 backdrop-blur-md p-5 rounded-2xl shadow-xl w-72 border border-white/10">
+<div class="flex justify-between items-end mb-4 border-b border-white/10 pb-2">
+<div class="">
+<span class="text-[10px] uppercase text-[#D4E8B0]/60 font-bold tracking-wider">Metabolismo Ativo</span>
+<div class="text-2xl tracking-tight font-light text-white">2.450 <span class="text-xs text-white/40 font-normal">kcal</span></div>
+</div>
+<div class="text-right">
+<span class="text-[10px] uppercase text-[#D4E8B0]/60 font-bold tracking-wider">Indice</span>
+<div class="text-2xl tracking-tight font-light text-white">98 <span class="text-xs text-white/40 font-normal">opt</span></div>
+</div>
+</div>
+<div class="flex justify-between gap-1 h-10 items-end">
+<div class="h-[40%] w-2 bg-white/10 rounded-full"></div>
+<div class="h-[60%] w-2 bg-white/10 rounded-full"></div>
+<div class="h-[50%] w-2 bg-white/10 rounded-full"></div>
+<div class="h-[80%] w-2 bg-white/10 rounded-full"></div>
+<div class="h-[70%] w-2 bg-[#D4E8B0] rounded-full shadow-[0_0_10px_rgba(212,232,176,0.5)]"></div>
+<div class="h-[90%] w-2 bg-white/10 rounded-full"></div>
+<div class="h-[75%] w-2 bg-white/10 rounded-full"></div>
+<div class="h-[100%] w-2 bg-white/10 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 04: Nossos Programas -->
+<section class="md:px-12 bg-stone-50 max-w-[1600px] border-stone-100 border rounded-[40px] mt-12 mr-auto mb-12 ml-auto pt-24 pr-6 pb-24 pl-6">
+<div class="flex justify-between items-baseline mb-16">
+<div class="">
+<span class="text-xs text-stone-400 uppercase tracking-widest block mb-4" style="">/ 03 Programas</span>
+<h2 class="text-4xl md:text-5xl tracking-tight text-stone-900 max-w-lg font-light" style="">
+                    Protocolos personalizados para cada corpo.
+                 </h2>
+</div>
+<div class="hidden lg:block">
+<p class="text-sm text-stone-500 max-w-xs text-right" style="">Planos de saude orientados por dados, projetados por especialistas de classe mundial.</p>
+<span class="text-xs text-stone-400 font-mono block text-right mt-2" style="">[ 03 ]</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+<!-- Left Visual -->
+<div class="relative rounded-3xl overflow-hidden h-[700px]">
+<img alt="Yoga" class="w-full h-full object-cover" src="assets/ec2179d5-e4f7-4e85-86d0-d004ca_a48f4c4a9cbe.webp"/>
+<!-- Price Tag Widget -->
+<div class="absolute bottom-8 left-8 right-8 bg-white p-6 rounded-2xl shadow-xl border border-stone-100">
+<div class="flex justify-between items-start mb-4">
+<div class="">
+<p class="text-xs text-stone-500 uppercase font-medium" style="">Programa Reset Metabolico</p>
+<h3 class="text-3xl tracking-tight text-stone-900 font-light" style="">R$899<span class="text-sm text-stone-400 font-light" style="">/mes</span></h3>
+</div>
+<div class="bg-stone-900 text-white text-[10px] uppercase font-bold tracking-wide px-3 py-1.5 rounded" style="">
+                            Mais Popular
+                        </div>
+</div>
+<div class="w-full h-1 bg-stone-100 rounded-full mb-4 overflow-hidden">
+<div class="w-[70%] bg-[#2C3E35] h-full"></div>
+</div>
+<div class="flex justify-between text-xs text-stone-500 font-medium">
+<div class="flex items-center gap-1">
+<iconify-icon class="text-[#2C3E35]" icon="solar:check-circle-linear"></iconify-icon>
+<span style="">Coaching Diario</span>
+</div>
+<div class="flex items-center gap-1">
+<iconify-icon class="text-[#2C3E35]" icon="solar:check-circle-linear"></iconify-icon>
+<span style="">Planos Alimentares</span>
+</div>
+<div class="flex items-center gap-1">
+<iconify-icon class="text-[#2C3E35]" icon="solar:check-circle-linear"></iconify-icon>
+<span style="">Exames Laboratoriais</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Accordion List -->
+<div class="flex flex-col gap-2">
+<!-- Item 1 (Active) -->
+<div class="group p-8 rounded-2xl bg-white shadow-sm border border-stone-100 transition cursor-pointer">
+<div class="flex items-start gap-6">
+<div class="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-xs font-mono text-stone-500" style="">01</div>
+<div class="flex-1">
+<h3 class="text-2xl tracking-tight text-stone-900 mb-3 font-light" style="">Perda de Peso Fundamentos</h3>
+<p class="text-stone-500 text-base font-light leading-relaxed mb-6" style="">
+                                Um programa com suporte GLP-1 que combina medicacao com coaching comportamental para garantir gerenciamento de peso sustentavel e de longo prazo.
+                            </p>
+<div class="flex items-center justify-between">
+<button class="bg-[#2C3E35] text-white pl-5 pr-2 py-2 rounded-full flex items-center gap-2 hover:bg-stone-800 transition">
+<span class="text-xs font-medium" style="">Ver Elegibilidade</span>
+<div class="bg-white/20 text-white rounded-full p-1">
+<iconify-icon icon="solar:arrow-right-linear" width="12"></iconify-icon>
+</div>
+</button>
+<div class="flex items-center gap-1 text-[#2C3E35] text-sm font-medium">
+<iconify-icon icon="solar:users-group-rounded-linear"></iconify-icon>
+<span class="text-stone-600 text-xs" style="">2k+ inscritos</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group p-8 rounded-2xl hover:bg-white border border-transparent hover:border-stone-100 transition cursor-pointer">
+<div class="flex items-center gap-6 opacity-60 group-hover:opacity-100 transition">
+<div class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-xs font-mono text-stone-400 group-hover:border-stone-400 group-hover:text-stone-600" style="">02</div>
+<div class="">
+<h3 class="text-xl font-medium tracking-tight text-stone-900" style="">Performance Cognitiva</h3>
+<p class="text-sm text-stone-400 mt-1" style="">Protocolos nootropicos para foco e clareza.</p>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group p-8 rounded-2xl hover:bg-white border border-transparent hover:border-stone-100 transition cursor-pointer">
+<div class="flex items-center gap-6 opacity-60 group-hover:opacity-100 transition">
+<div class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-xs font-mono text-stone-400 group-hover:border-stone-400 group-hover:text-stone-600" style="">03</div>
+<div>
+<h3 class="text-xl font-medium tracking-tight text-stone-900" style="">Equilibrio Hormonal</h3>
+<p class="text-sm text-stone-400 mt-1" style="">Terapias TRT e HRT para vitalidade.</p>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="group p-8 rounded-2xl hover:bg-white border border-transparent hover:border-stone-100 transition cursor-pointer">
+<div class="flex items-center gap-6 opacity-60 group-hover:opacity-100 transition">
+<div class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-xs font-mono text-stone-400 group-hover:border-stone-400 group-hover:text-stone-600" style="">04</div>
+<div>
+<h3 class="text-xl font-medium tracking-tight text-stone-900" style="">Protocolo de Longevidade</h3>
+<p class="text-sm text-stone-400 mt-1" style="">Reparo celular e suporte anti-envelhecimento.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 05: Produtos (Apothecaria) -->
+<section class="px-6 py-24 md:px-12 max-w-[1600px] mx-auto">
+<div class="flex justify-between items-baseline mb-8 border-b border-stone-200 pb-4">
+<span class="text-xs text-stone-400 uppercase tracking-widest" style="">/ 04 Apothecaria</span>
+<span class="text-xs text-stone-400 font-mono" style="">[ 04 ]</span>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<h2 class="text-4xl tracking-tight text-stone-900 max-w-lg font-light" style="">
+                Rituais diarios criados para restaurar seu ritmo natural.
+            </h2>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 bg-stone-900 text-white rounded-full text-xs font-medium" style="">Todos</button>
+<button class="px-4 py-1.5 border border-stone-200 text-stone-600 rounded-full text-xs font-medium hover:border-stone-400 transition" style="">Topicos</button>
+<button class="px-4 py-1.5 border border-stone-200 text-stone-600 rounded-full text-xs font-medium hover:border-stone-400 transition" style="">Ingeriveis</button>
+</div>
+</div>
+<!-- BENTO GRID LAYOUT -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto md:h-[600px]">
+<!-- Item 1: Large Featured (Span 2 Cols, Full Height) -->
+<div class="md:col-span-2 md:row-span-2 overflow-hidden group flex flex-col bg-stone-100 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e87981b4-9f1d-4525-86d0-b75c15667294_1600w.webp)] bg-cover bg-center rounded-3xl pt-10 pr-10 pb-10 pl-10 relative justify-between">
+<div class="relative z-10">
+<span class="px-3 py-1 bg-white/80 backdrop-blur text-stone-900 text-[10px] font-bold uppercase tracking-wider rounded border border-stone-200" style="">Mais Vendido</span>
+<h3 class="text-4xl text-stone-900 mt-6 mb-2 font-light" style="">Serum Aurora</h3>
+<p class="text-stone-500 max-w-sm" style="">Defesa matinal rica em antioxidantes para despertar a barreira natural da sua pele.</p>
+</div>
+<div class="flex group-hover:translate-y-8 transition duration-700 absolute top-0 right-0 bottom-0 left-0 translate-y-12 items-center justify-center">
+<!-- Abstract Bottle Shape -->
+</div>
+<div class="relative z-10 flex justify-between items-end">
+<div class="text-2xl text-stone-900 font-light" style="">R$250</div>
+<button class="w-12 h-12 rounded-full bg-white flex items-center justify-center border border-stone-200 hover:scale-110 transition shadow-sm">
+<iconify-icon icon="solar:bag-linear" width="20"></iconify-icon>
+</button>
+</div>
+</div>
+<!-- Item 2: Medium Card (Top Right) -->
+<div class="md:col-span-1 bg-[#E8F0D6] rounded-3xl p-6 relative group overflow-hidden flex flex-col justify-between">
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition">
+<iconify-icon icon="solar:arrow-right-up-linear" width="20"></iconify-icon>
+</div>
+<div class="w-16 h-16 bg-[#2C3E35] rounded-full flex items-center justify-center text-white mb-4">
+<iconify-icon icon="solar:sun-2-linear" width="32"></iconify-icon>
+</div>
+<div class="">
+<h4 class="text-lg font-medium text-[#2C3E35]" style="">Energia Solar</h4>
+<p class="text-xs text-[#2C3E35]/70 mt-1" style="">Blend de Foco &amp; Clareza</p>
+</div>
+<div class="mt-4 flex justify-between items-center border-t border-[#2C3E35]/10 pt-4">
+<span class="font-medium text-[#2C3E35]" style="">R$130</span>
+<span class="text-[10px] uppercase tracking-wide text-[#2C3E35]/60" style="">60 Caps</span>
+</div>
+</div>
+<!-- Item 3: Medium Card (Top Right 2) -->
+<div class="md:col-span-1 bg-white border border-stone-200 rounded-3xl p-6 relative group overflow-hidden flex flex-col justify-between">
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition">
+<iconify-icon icon="solar:arrow-right-up-linear" width="20"></iconify-icon>
+</div>
+<div class="w-16 h-16 bg-stone-100 rounded-full flex items-center justify-center text-stone-400 mb-4">
+<iconify-icon icon="solar:moon-stars-linear" width="32"></iconify-icon>
+</div>
+<div>
+<h4 class="text-lg font-medium text-stone-900" style="">Repouso Lunar</h4>
+<p class="text-xs text-stone-500 mt-1" style="">Suporte para Sono Profundo</p>
+</div>
+<div class="mt-4 flex justify-between items-center border-t border-stone-100 pt-4">
+<span class="font-medium text-stone-900" style="">R$130</span>
+<span class="text-[10px] uppercase tracking-wide text-stone-400" style="">60 Caps</span>
+</div>
+</div>
+<!-- Item 4: Wide Span Bottom Right -->
+<div class="md:col-span-2 bg-[#2C3E35] rounded-3xl p-8 flex items-center justify-between text-white relative overflow-hidden group">
+<div class="relative z-10 max-w-[60%]">
+<h4 class="text-2xl mb-2 font-light" style="">Kit Iniciante</h4>
+<p class="text-sm text-white/60 mb-6" style="">Protocolo completo para iniciantes. Inclui formulas AM/PM.</p>
+<button class="text-xs font-medium border-b border-white pb-0.5 hover:text-[#D4E8B0] hover:border-[#D4E8B0] transition" style="">Ver Colecao</button>
+</div>
+<div class="absolute right-0 bottom-0 h-full w-1/3 bg-gradient-to-l from-white/10 to-transparent"></div>
+<div class="w-24 h-24 rounded-full border border-white/20 flex items-center justify-center group-hover:scale-110 transition duration-500">
+<span class="text-lg font-medium" style="">R$350</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 06: Depoimentos -->
+<section class="px-6 py-24 md:px-12 max-w-[1600px] mx-auto">
+<div class="bg-[#2C3E35] rounded-[40px] p-8 md:p-16 text-white relative overflow-hidden">
+<div class="flex justify-between items-start mb-12 relative z-10">
+<div class="">
+<span class="text-xs text-white/50 uppercase tracking-widest block mb-4" style="">/ 05 Depoimentos</span>
+<h2 class="text-3xl md:text-5xl tracking-tight max-w-lg leading-tight font-light" style="">
+                        Historias da nossa comunidade.
+                    </h2>
+</div>
+<div class="flex gap-2">
+<button class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[#2C3E35] transition duration-300" id="prevBtn">
+<iconify-icon icon="solar:arrow-left-linear" width="20"></iconify-icon>
+</button>
+<button class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[#2C3E35] transition duration-300" id="nextBtn">
+<iconify-icon icon="solar:arrow-right-linear" width="20"></iconify-icon>
+</button>
+</div>
+</div>
+<!-- Slider Container -->
+<div class="flex overflow-x-auto gap-6 pb-4 snap-x hide-scrollbar scroll-smooth" id="testimonial-container">
+<!-- Slide 1 -->
+<div class="min-w-[100%] md:min-w-[80%] lg:min-w-[70%] snap-center">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-[#23322b] rounded-3xl p-6 lg:p-0 overflow-hidden">
+<div class="lg:col-span-4 h-64 lg:h-auto relative">
+<img alt="Usuario" class="w-full h-full object-cover rounded-2xl lg:rounded-none lg:rounded-l-3xl opacity-90" src="assets/fba47e77-83f6-4793-8497-3ada58_ad652f3d4e94.jpg"/>
+</div>
+<div class="lg:col-span-8 flex flex-col justify-center lg:py-12 lg:pr-12">
+<iconify-icon class="mb-6 opacity-30 text-[#D4E8B0]" height="40" icon="solar:quote-up-bold" width="40"></iconify-icon>
+<blockquote class="text-xl md:text-3xl leading-snug tracking-tight mb-8 font-light" style="">
+                                 "Fazer parte do programa de reset metabolico mudou completamente minha perspectiva. Nao e sobre restricao, e sobre nutricao profunda."
+                             </blockquote>
+<div class="flex items-center gap-4">
+<div class="">
+<div class="font-medium text-lg text-[#D4E8B0]" style="">Isabela Santos</div>
+<div class="text-xs uppercase tracking-wider opacity-60" style="">Arquiteta, Sao Paulo</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slide 2 -->
+<div class="min-w-[100%] md:min-w-[80%] lg:min-w-[70%] snap-center">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-[#23322b] rounded-3xl p-6 lg:p-0 overflow-hidden">
+<div class="lg:col-span-4 h-64 lg:h-auto relative">
+<img alt="Usuario" class="lg:rounded-none lg:rounded-l-3xl opacity-90 w-full h-full object-cover rounded-2xl" src="assets/7977c000-ef3e-47cb-8975-a36e84_0ebeb20e7093.webp"/>
+</div>
+<div class="lg:col-span-8 flex flex-col justify-center lg:py-12 lg:pr-12">
+<iconify-icon class="mb-6 opacity-30 text-[#D4E8B0]" height="40" icon="solar:quote-up-bold" width="40"></iconify-icon>
+<blockquote class="text-xl md:text-3xl leading-snug tracking-tight mb-8 font-light" style="">
+                                 "Os protocolos nootropicos me deram uma clareza que nao sentia ha anos. A nevoa cerebral desapareceu na primeira semana do regime."
+                             </blockquote>
+<div class="flex items-center gap-4">
+<div class="">
+<div class="font-medium text-lg text-[#D4E8B0]" style="">Lucas Oliveira</div>
+<div class="text-xs uppercase tracking-wider opacity-60" style="">Engenheiro de Software, SP</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slide 3 -->
+<div class="min-w-[100%] md:min-w-[80%] lg:min-w-[70%] snap-center">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-[#23322b] rounded-3xl p-6 lg:p-0 overflow-hidden">
+<div class="lg:col-span-4 h-64 lg:h-auto relative">
+<img alt="Usuario" class="lg:rounded-none lg:rounded-l-3xl opacity-90 w-full h-full object-cover rounded-2xl grayscale" src="assets/dab93e0a-ecb6-458e-9f0d-b757dd_402f58c48d60.webp"/>
+</div>
+<div class="lg:col-span-8 flex flex-col justify-center lg:py-12 lg:pr-12">
+<iconify-icon class="mb-6 opacity-30 text-[#D4E8B0]" height="40" icon="solar:quote-up-bold" width="40"></iconify-icon>
+<blockquote class="text-xl md:text-3xl leading-snug tracking-tight mb-8 font-light" style="">
+                                 "Eu era cetica em relacao a telemedicina, mas o nivel de personalizacao na analise de sangue foi superior ao da minha clinica local."
+                             </blockquote>
+<div class="flex items-center gap-4">
+<div class="">
+<div class="font-medium text-lg text-[#D4E8B0]" style="">Marina Costa</div>
+<div class="text-xs uppercase tracking-wider opacity-60" style="">Chef de Cozinha, Florianópolis</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 07: FAQ -->
+<section class="px-6 py-24 md:px-12 max-w-[1600px] mx-auto border-b border-stone-200">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-4">
+<span class="text-xs text-stone-400 uppercase tracking-widest block mb-4" style="">/ 06 FAQ</span>
+<h2 class="text-4xl md:text-5xl tracking-tight text-stone-900 mb-12 font-light" style="">
+                    Perguntas Frequentes
+                </h2>
+<div class="mb-12">
+<div class="flex justify-between items-end mb-2">
+<span class="text-[10px] uppercase font-bold text-stone-400" style="">Capacidade de Membros</span>
+<span class="text-[10px] font-bold text-stone-400" style="">92% Lotado</span>
+</div>
+<div class="w-full bg-stone-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-[#2C3E35] w-[92%] h-full"></div>
+</div>
+</div>
+<button class="bg-stone-900 text-white pl-6 pr-2 py-3 rounded-full flex items-center gap-4 hover:bg-stone-800 transition w-full md:w-auto justify-between md:justify-start">
+<span class="text-sm font-medium" style="">Candidatar-se a Membro</span>
+<div class="bg-white text-black rounded-full p-1.5">
+<iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+</div>
+</button>
+</div>
+<div class="lg:col-span-8 space-y-6">
+<!-- FAQ Item 1 -->
+<div class="border-b border-stone-200 pb-6">
+<div class="flex justify-between items-center cursor-pointer group">
+<h3 class="text-xl text-stone-500 group-hover:text-stone-900 transition font-light" style="">Voces aceitam convenio medico?</h3>
+<div class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-stone-400 group-hover:border-stone-900 group-hover:text-stone-900 transition">
+<iconify-icon icon="solar:add-linear" width="16"></iconify-icon>
+</div>
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="border-b border-stone-200 pb-6">
+<div class="flex justify-between items-center cursor-pointer group">
+<h3 class="text-xl text-stone-500 group-hover:text-stone-900 transition font-light" style="">O que envolve a avaliacao inicial?</h3>
+<div class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-stone-400 group-hover:border-stone-900 group-hover:text-stone-900 transition">
+<iconify-icon icon="solar:minus-linear" width="16"></iconify-icon>
+</div>
+</div>
+<p class="mt-4 text-sm text-stone-400 leading-relaxed max-w-2xl" style="">
+                        Nossa consulta de 75 minutos inclui uma revisao abrangente do seu historico medico, analise do painel metabolico, auditoria de estilo de vida e definicao de objetivos com um praticante de medicina funcional.
+                    </p>
+</div>
+<!-- FAQ Item 3 -->
+<div class="border-b border-stone-200 pb-6">
+<div class="flex justify-between items-center cursor-pointer group">
+<h3 class="text-xl text-stone-500 group-hover:text-stone-900 transition font-light" style="">Os produtos sao veganos e livres de crueldade?</h3>
+<div class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-stone-400 group-hover:border-stone-900 group-hover:text-stone-900 transition">
+<iconify-icon icon="solar:add-linear" width="16"></iconify-icon>
+</div>
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="border-b border-stone-200 pb-6">
+<div class="flex justify-between items-center cursor-pointer group">
+<h3 class="text-xl text-stone-500 group-hover:text-stone-900 transition font-light" style="">Posso pausar minha assinatura?</h3>
+<div class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center text-stone-400 group-hover:border-stone-900 group-hover:text-stone-900 transition">
+<iconify-icon icon="solar:add-linear" width="16"></iconify-icon>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#2C3E35] text-white px-6 py-24 md:px-12">
+<div class="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-24">
+<div class="lg:col-span-1">
+<h2 class="text-2xl tracking-tight mb-8 font-light" style="">Harmonia para todo o seu ser.</h2>
+<button class="bg-[#D4E8B0] text-[#2C3E35] pl-6 pr-2 py-2 rounded-full flex items-center gap-4 hover:bg-white transition">
+<span class="text-sm font-medium" style="">Agendar Consulta</span>
+<div class="bg-[#2C3E35] text-[#D4E8B0] rounded-full p-1.5">
+<iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+</div>
+</button>
+</div>
+<div class="grid grid-cols-2 lg:col-span-3 gap-8 text-[10px] uppercase tracking-widest text-[#D4E8B0]/60">
+<div class="space-y-8">
+<div class="">
+<span class="block mb-4 text-[#D4E8B0]" style="">Horario da Clinica</span>
+<div class="text-white normal-case text-sm font-light" style="">08:00 - 20:00 BRT</div>
+</div>
+<div>
+<span class="block mb-4 text-[#D4E8B0]" style="">Contato</span>
+<div class="text-white normal-case text-sm font-light block" style="">+55 (48) 8872-1165</div>
+<div class="text-white normal-case text-sm font-light block" style="">contato@lumifycompany.com.br</div>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<span class="block mb-4 text-[#D4E8B0]" style="">Unidades</span>
+<div class="text-white normal-case text-sm font-light mb-4" style="">
+                            Florianópolis, SC
+                        </div>
+<div class="text-white normal-case text-sm font-light" style="">
+                            Florianópolis, SC
+                        </div>
+</div>
+<div class="pt-8">
+<span class="block mb-4 text-[#D4E8B0]" style="">Conecte-se</span>
+<div class="flex gap-2">
+<a class="w-8 h-8 flex items-center justify-center rounded border border-[#D4E8B0]/20 text-white hover:bg-[#D4E8B0] hover:text-[#2C3E35] transition" href="#">
+<iconify-icon icon="simple-icons:instagram"></iconify-icon>
+</a>
+<a class="w-8 h-8 flex items-center justify-center rounded border border-[#D4E8B0]/20 text-white hover:bg-[#D4E8B0] hover:text-[#2C3E35] transition" href="#">
+<iconify-icon icon="simple-icons:twitter"></iconify-icon>
+</a>
+<a class="w-8 h-8 flex items-center justify-center rounded border border-[#D4E8B0]/20 text-white hover:bg-[#D4E8B0] hover:text-[#2C3E35] transition" href="#">
+<iconify-icon icon="simple-icons:linkedin"></iconify-icon>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-[1600px] mx-auto mt-24 pt-8 border-t border-[#D4E8B0]/20 flex flex-col md:flex-row justify-between text-[10px] text-[#D4E8B0]/60 tracking-wider uppercase">
+<div class="flex gap-6 mb-4 md:mb-0">
+<a class="hover:text-white transition" href="#" style="">Filosofia</a>
+<a class="hover:text-white transition" href="#" style="">Ciencia</a>
+<a class="hover:text-white transition" href="#" style="">Loja</a>
+</div>
+<div class="flex gap-6">
+<span style="">2026 Lumify Wellness</span>
+<a class="hover:text-white transition" href="#" style="">Privacidade</a>
+<a class="hover:text-white transition" href="#" style="">Termos</a>
+</div>
+</div>
+</footer>
+<script>
+        lucide.createIcons();
+
+        // -------------------------
+        // GSAP ANIMATION LOGIC
+        // -------------------------
+
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Helper function to split text for masked reveal
+        function splitTextForReveal(element) {
+            const text = element.textContent.trim();
+            const words = text.split(' ');
+            element.textContent = ''; // Clear original text
+
+            words.forEach(word => {
+                // Create wrapper (mask)
+                const wrapper = document.createElement('span');
+                wrapper.classList.add('word-wrapper');
+
+                // Create inner span (translating element)
+                const inner = document.createElement('span');
+                inner.classList.add('word-inner');
+                inner.textContent = word + ' '; // Add non-breaking space
+
+                wrapper.appendChild(inner);
+                element.appendChild(wrapper);
+            });
+        }
+
+        // 2. Apply Split Logic to targeted elements
+        const revealElements = document.querySelectorAll('.reveal-text');
+
+        revealElements.forEach(element => {
+            splitTextForReveal(element);
+
+            // Get the inner words we just created
+            const innerWords = element.querySelectorAll('.word-inner');
+
+            // Create the animation
+            gsap.to(innerWords, {
+                y: 0,
+                duration: 1.2,
+                stagger: 0.05,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 85%", // Animation starts when top of text hits 85% of viewport height
+                    toggleActions: "play none none reverse" // Re-plays if you scroll back up
+                }
+            });
+        });
+
+        // 3. Parallax Background Animation
+        gsap.to("#hero-bg", {
+            yPercent: 30, // Move the image down by 30% of its height
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#hero-section",
+                start: "top top",
+                end: "bottom top",
+                scrub: true // Smoothly scrubs the animation based on scroll position
+            }
+        });
+
+        // -------------------------
+        // EXISTING SLIDER LOGIC
+        // -------------------------
+        const container = document.getElementById('testimonial-container');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        if(container && nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', () => {
+                container.scrollBy({ left: container.clientWidth * 0.7, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                container.scrollBy({ left: -(container.clientWidth * 0.7), behavior: 'smooth' });
+            });
+        }
+    </script>
+<script data-img-fallback-handler="">!function(){var f=["https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg","https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg","https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c543a9e1-f226-4ced-80b0-feb8445a75b9_1600w.jpg","https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5bab247f-35d9-400d-a82b-fd87cfe913d2_1600w.webp","https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp"],h=new Set;function g(s){for(var x=0,i=0;i<s.length;i++)x=(x<<5)-x+s.charCodeAt(i)|0;return f[Math.abs(x)%f.length]}function r(t){var s=t.src;if(s&&!h.has(s)){h.add(s);t.src=g(s)}}window.addEventListener("error",function(e){var t=e.target;if(t&&t.tagName==="IMG")r(t)},!0);function c(){document.querySelectorAll("img").forEach(function(i){if(i.complete&&!i.naturalWidth&&i.src)r(i)})}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",c);else c()}()</script></body></html>
